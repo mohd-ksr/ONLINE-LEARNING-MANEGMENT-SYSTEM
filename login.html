@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            animation: animateBg 5s infinite;
+            background: url("images/16.png") no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        @keyframes animateBg{
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+        .login-box{
+            position: relative;
+            width: 400px;
+            height: 450px;
+            /* background-color: black; */
+            background: transparent;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        h2{
+            font-size: 2em;
+            color: #fff;
+            text-align: center;
+        }
+        .input-box{
+            position: relative;
+            width: 310px;
+            margin: 30px 0;
+            border-bottom: 1px solid #fff;
+        }
+        .input-box label{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 1em;
+            color: #fff;
+            pointer-events: none;
+            transition: .5s;
+        }
+        .input-box input:focus ~ label, .input-box input:valid ~ label{
+            top: -5px;
+        }
+        .input-box input{
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            color: #ffffff;
+            padding: 0 35px 0 5px;
+        }
+        .remember-forgot{
+            margin: -15px 0 15px;
+            font-size: .9em;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+        }
+        .remember-forgot label input{
+            margin-right: 3px;
+        }
+        .remember-forgot a{
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .remember-forgot a:hover{
+            text-decoration: underline;
+        }
+        button{
+            width: 100%;
+            height: 40px;
+            background-color: #fff;
+            border: none;
+            border-radius:40px;
+            cursor: pointer;
+            font-size: 1em;
+            color: black;
+            font-weight: 500;
+        }
+        .register-link{
+            font-size: 0.9em;
+            color: #fff;
+            text-align: center;
+            margin: 25px 0 10px;
+        }
+        .register-link p a{
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .register-link p a:hover{
+            text-decoration: underline;
+        }
+        @media (max-width:500px) {
+            .login-box{
+                width: 100%;
+                height: 10vh;
+                border: none;
+                border-radius: 0;
+            }
+            .input-box{
+                width: 290px;
+            }
+        }
+
+        button:hover{
+        color: #339933;
+        border: 2px solid #339933 ;
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2),0 0 5px rgba(0, 255, 0, 0.1),0 2px 0 black;
+    }
+@media screen and (max-width: 770px) {
+    .banner-text h1{
+        font-size:35px;
+        margin-left: 20px;
+    }
+    .banner-btn a{
+        display: block;
+        margin: 20px auto;
+    }
+    .banner-text p{
+        font-size: 20px;
+    }
+    
+}
+
+#sideNav{
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    right: -250px;
+    top: 0;
+    background: #009688;
+    z-index: 2;
+    transition: 0.5s;
+}
+nav ul li{
+    list-style: none;
+    margin: 50px 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.content-list {
+    display: none;
+    position: fixed;
+    background-color: #009688;
+    width: 200px;
+    height: auto;
+    margin-left: -200px;
+    margin-top: -20px;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 999;
+    border-radius: 15px;
+}
+
+#projects:hover .content-list {
+    display: block;
+}
+#tutorials:hover .content-list {
+    display: block;
+}
+#mobile:hover .content-list {
+    display: block;
+}
+#wordpress:hover .content-list {
+    display: block;
+}
+#e-commerce:hover .content-list {
+    display: block;
+}
+#others:hover .content-list {
+    display: block;
+}
+
+.content-list a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+}
+
+.content-list a:hover {
+    background-color: #47bcb0;
+}
+
+
+
+
+
+#menubtn{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: #009688;
+    position:fixed ;
+    right: 30px;
+    top: 20px;
+    border-radius: 3px;
+    z-index: 3;
+    cursor: pointer;
+}
+#menubtn img{
+    width: 30px;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 770px) {
+    .banner-text h1{
+        font-size:35px;
+        margin-left: 20px;
+    }
+    .banner-btn a{
+        display: block;
+        margin: 20px auto;
+    }
+    .banner-text p{
+        font-size: 20px;
+    }
+    
+}
+
+
+
+footer {
+    background: rgb(50, 50, 50);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.footer-links li {
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: rgb(0, 102, 255);
+    text-decoration: underline;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+    color: rgb(0, 102, 255);
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login-box">
+            <form action="">
+                <h2>Login</h2>
+                <div class="input-box">
+                    
+                        <input type="email" required>
+                        <label id="email">Email</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" required>
+                            <label id="password">Password</label>
+
+                        </div>
+
+
+                        <div class="remember-forgot">
+                            <label><input type="checkbox">Remember me </label>
+                            <a href="#">Forgot Password</a>
+                        </div>
+                        <button type="submit">Login</button>
+                        
+                        <div class="register-link">
+                            <p>Don't have an account? <a href="reg.html">Register</a> </p>
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="sideNav">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li id="projects"><a href="https://www.campcodes.com/projects/" target="_blank">PROJECTS</a>
+                    <div class="content-list">
+                        <a href="https://www.campcodes.com/projects/php/" target="_blank">PHP</a>
+                        <a href="https://www.campcodes.com/projects/c/" target="_blank">C#</a>
+                        <a href="https://www.campcodes.com/projects/c-c/" target="_blank">C/C++</a>
+                        <a href="https://www.campcodes.com/projects/python/" target="_blank">PYTHON</a>
+                        <a href="https://www.campcodes.com/projects/java/" target="_blank">JAVA</a>
+                        <a href="https://www.campcodes.com/projects/javascript/" target="_blank">JAVASCRIPT</a>
+                    </div>
+                </li>
+                <li id="tutorials"><a href="https://www.campcodes.com/tutorials/" target="_blank">TUTORIALS</a>
+                    <div class="content-list">
+                        <a href="https://www.campcodes.com/tutorials/html-css/" target="_blank">HTML/CSS</a>
+                        <a href="https://www.campcodes.com/tutorials/nodejs/" target="_blank">NODE.JS</a>
+                        <a href="https://www.campcodes.com/tutorials/c-cplusplus/" target="_blank">C/C++</a>
+                        <a href="https://www.campcodes.com/tutorials/python-tutorials/" target="_blank">PYTHON</a>
+                        <a href="https://www.campcodes.com/tutorials/php-tutorials/" target="_blank">PHP</a>
+                        <a href="https://www.campcodes.com/tutorials/java-tutorials/" target="_blank">JAVA</a>
+                        <a href="https://www.campcodes.com/tutorials/javascript-tutorials/" target="_blank">JAVASCRIPT</a>
+                    </div></li>
+                <li id="mobile"><a href="https://www.campcodes.com/mobile-app/">MOBILE</a>
+                    <div class="content-list">
+                    <a href="https://www.campcodes.com/mobile-app/android-studio/" target="_blank">ANDROID STUDIO</a>
+                    <a href="https://www.campcodes.com/mobile-app/ios/" target="_blank">IOS</a>
+                    <a href="https://www.campcodes.com/mobile-app/b4a/" target="_blank">B4A</a>
+                    <a href="https://www.campcodes.com/mobile-app/flutter/" target="_blank">FLUTTER</a>
+                    <a href="https://www.campcodes.com/mobile-app/unity/" target="_blank">UNITY</a>
+                </div></li>
+                <li id="wordpress"><a href="https://www.campcodes.com/wordpress/">WORDPRESS</a>
+                    <div class="content-list">
+                    <a href="https://www.campcodes.com/wordpress/themes/" target="_blank">THEMES</a>
+                    <a href="https://www.campcodes.com/wordpress/plugins/" target="_blank">PLUGINS</a>
+                    <a href="https://www.campcodes.com/premium-wordpress-themes-and-plugins-updates/" target="_blank">UPDATES</a>
+                </div></li>
+                <li id="e-commerce"><a href="https://www.campcodes.com/ecommerce/">E-COMMERCE</a>
+                    <div class="content-list">
+                    <a href="https://www.campcodes.com/ecommerce/magento/" target="_blank">MAGENTO</a>
+                </div></li>
+                <li id="others"><a href="https://www.campcodes.com/giveaways/">MORE</a>
+                    <div class="content-list">
+                        <a href="https://www.campcodes.com/giveaways/software/" target="_blank">SOFTWARE</a>
+                        <a href="https://www.campcodes.com/giveaways/programming-ebooks/" target="_blank">PROGRAMMING-EBOOKS</a>
+                        <a href="https://www.campcodes.com/giveaways/interview-q-and-a/" target="_blank">INTERVIEW Q AND A</a>
+                        <a href="https://www.campcodes.com/giveaways/others/" target="_blank">OTHERS</a>
+                    </div></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="menubtn">
+        <img src="images/34.svg" id="menu">
+    </div>
+
+
+    <section>
+        <footer>
+            <img src="images/29.png" alt="Company Logo" class="footer-logo">
+            <ul class="footer-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                <a href="https://twitter.com/" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+            </div>
+            <p>&copy; Mo Kausar, 12316343, K23BG-A13<br/>
+            Anil Krishna, 12311917, K23BG-A14<br/>
+            Mokshajna Chinthala, 12315450 , K23BG-A12</p>
+        </footer>
+    </section>
+
+   
+    <script>
+        var menubtn=document.getElementById("menubtn")
+        var sideNav=document.getElementById("sideNav")
+        var menu=document.getElementById("menu")
+
+        sideNav.style.right = "-250px"
+
+        menubtn.onclick = function(){
+            if(sideNav.style.right == "-250px"){
+                sideNav.style.right = "0";
+                menu.src = "images/35.webp";
+            }
+            else{
+                sideNav.style.right = "-250px";
+                menu.src = "images/34.svg";
+            }
+        }
+    </script>
+</body>
+</html>
